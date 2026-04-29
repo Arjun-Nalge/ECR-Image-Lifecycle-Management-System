@@ -63,13 +63,22 @@ It helps reduce storage costs, removes stale container images, and keeps the con
 
 * Go to AWS Console → ECR
 * Create a repository (e.g., `image-cleanup-repo`)
-* Push Docker images.
+* Push Docker images:
+
+```bash
+docker build -t my-app .
+docker tag my-app:latest <account-id>.dkr.ecr.<region>.amazonaws.com/image-cleanup-repo
+docker push <account-id>.dkr.ecr.<region>.amazonaws.com/image-cleanup-repo
+```
 
 ---
 
 ### 2. Create IAM Role for Lambda
 
-Attach the Required Permissions.
+Attach the ECR permissions (IAM/policy.json)
+
+```
+
 Also add logging permissions:
 
 * logs:CreateLogGroup
@@ -80,9 +89,9 @@ Also add logging permissions:
 
 ### 3. Create Lambda Function
 
-* Runtime: Python 3.14
+* Runtime: Python 3.x
 * Attach IAM Role
-* Add the Python code
+* Add the Python code. (lambda/cleanup.py)
 
 ---
 
@@ -124,3 +133,19 @@ ecr-image-cleanup/
 ```
 
 ---
+
+## 🧪 Example Scenario
+
+| Image Tag | Age (Days) | Result  |
+| --------- | ---------- | ------- |
+| latest    | 5          | Kept    |
+| v1        | 40         | Deleted |
+| <none>    | 10         | Deleted |
+
+---
+
+## Author
+Arjun Nalge - DevOps Engineer
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?logo=linkedin)](https://www.linkedin.com/in/arjun-nalge-313642398)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?logo=github)](https://github.com/Arjun-Nalge/Arjun-Nalge.git)
