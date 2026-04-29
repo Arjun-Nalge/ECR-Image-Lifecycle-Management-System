@@ -76,9 +76,6 @@ docker push <account-id>.dkr.ecr.<region>.amazonaws.com/image-cleanup-repo
 ### 2. Create IAM Role for Lambda
 
 Attach the ECR permissions (IAM/policy.json)
-
-```
-
 Also add logging permissions:
 
 * logs:CreateLogGroup
