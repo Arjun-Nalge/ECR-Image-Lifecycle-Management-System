@@ -137,7 +137,7 @@ ecr-image-cleanup/
 | --------- | ---------- | ------- |
 | latest    | 5          | Kept    |
 | v1        | 40         | Deleted |
-|           | 10         | Deleted | (untagged)
+|           | 10         | Deleted (untagged)| 
 
 ---
 
