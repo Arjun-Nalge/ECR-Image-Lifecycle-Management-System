@@ -34,6 +34,8 @@ It helps reduce storage costs, removes stale container images, and keeps the con
           +----------------------+
 ```
 
+![image alt](https://github.com/Arjun-Nalge/ECR-Image-Lifecycle-Management-System/blob/01c857834af661756eda23f8f64a1cb69aa72aa9/image-cleanup-project.png)
+
 ---
 
 ## ⚙️ Features
